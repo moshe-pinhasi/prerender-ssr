@@ -1,0 +1,24 @@
+version: "2"
+services:
+  app:
+    container_name: prerender-ssr
+    build: .
+    image: moshe/prerender-ssr
+    command: >
+      sh -c "npm run migrate-all
+        npm run server:dev"
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - "3030:3030"
+    depends_on:
+      - mongo
+    environment:
+      NODE_ENV: "development"
+      DATABASE_URL: "mongodb://mongo:27017/prerender-ssr"
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+      - "27018:27017" # for roboongo

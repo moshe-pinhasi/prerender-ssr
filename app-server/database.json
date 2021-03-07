@@ -1,0 +1,14 @@
+{
+  "dev": {
+    "driver": "mongodb",
+    "user": "root",
+    "database": "prerender-ssr"
+  },
+
+  "prod": {
+    "driver": "mongodb",
+    "user": "root",
+    "database": "prerender-ssr"
+  }
+
+}
