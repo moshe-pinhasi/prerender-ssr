@@ -1,11 +1,15 @@
 const fs = require('fs');
-const ejs = require('ejs')
 const path = require("path");
+const ejs = require('ejs')
 
 const OUTPUT_DIR = '../../public'
 const TEMPLATES_DIR = '../templates'
 
 module.exports = { generateJobPage, generateJobList }
+
+if (!fs.existsSync(path.resolve(__dirname,OUTPUT_DIR))) {
+  fs.mkdirSync(path.resolve(__dirname,OUTPUT_DIR), 0744);
+}
 
 async function generateJobPage(job, jobs) {
   //make async
