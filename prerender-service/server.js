@@ -4,6 +4,8 @@ const cors = require('cors')
 const app = express()
 const http = require('http').createServer(app);
 
+app.set("view engine","ejs")
+
 // apis
 const jobsApi = require('./api/jobs/jobs.routes')
 
